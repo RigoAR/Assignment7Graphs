@@ -1,0 +1,24 @@
+Algorithm Analysis for Problem 4
+Time Complexity: O(n²)
+We only check the upper triangle of the matrix (elements where j > i).
+This still requires comparing approximately n²/2 elements.
+The asymptotic time complexity remains O(n²).
+
+Space Complexity: O(n²)
+The only significant space usage is storing the n×n input matrix.
+Total space complexity is O(n²).
+
+Algorithm Analysis for Problem 5
+Time Complexity: O(V^7)
+This uses a depth-first search to find all paths of length 7.
+In the worst case (a complete graph), each vertex has V-1 neighbors.
+For a fixed path length of 7, we explore at most O(V^7) paths.
+Since 7 is a constant, this could be written as O(V^k) where k is a constant.
+
+Space Complexity: O(V)
+The space used includes:
+The adjacency list: O(V + E)
+The visited array: O(V)
+The path list: O(1) since we store at most 8 vertices
+Recursion stack: O(1) since the depth is at most 7
+The dominant factor is O(V), making the overall space complexity O(V).
