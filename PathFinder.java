@@ -24,18 +24,20 @@ public class PathFinder {
         }
     }
 
-    public void addEdge(int source, int destination, int weight) {  // Added weight parameter
+    public void addEdge(int source, int destination, int weight)
+    {  // Added weight parameter
         graph.get(source).add(new Edge(destination, weight));
     }
 
-    public void findPathsOfLength7(int start, int end) {
+    //u is start and w is end
+    public void findPathsOfLength7(int u, int w) {
         List<Integer> path = new ArrayList<>();
         boolean[] visited = new boolean[vertices];
 
-        path.add(start);
-        visited[start] = true;
+        path.add(u);
+        visited[u] = true;
 
-        findPathsRecursive(start, end, visited, path, 1);  // 1 is current path length
+        findPathsRecursive(u, w, visited, path, 1);  // 1 is current path length
     }
 
     private void findPathsRecursive(int current, int end, boolean[] visited, List<Integer> path, int pathLength) {
