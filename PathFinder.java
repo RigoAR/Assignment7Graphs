@@ -2,7 +2,18 @@ import java.util.*;
 
 public class PathFinder {
     private int vertices;
-    private List<List<Integer>> graph;
+    private List<List<Edge>> graph;  // Changed to store Edge objects
+
+    // Edge class to store destination and weight
+    static class Edge {
+        int destination;
+        int weight;
+
+        public Edge(int destination, int weight) {
+            this.destination = destination;
+            this.weight = weight;
+        }
+    }
 
     public PathFinder(int vertices) {
         this.vertices = vertices;
@@ -13,8 +24,8 @@ public class PathFinder {
         }
     }
 
-    public void addEdge(int source, int destination) {
-        graph.get(source).add(destination);
+    public void addEdge(int source, int destination, int weight) {  // Added weight parameter
+        graph.get(source).add(new Edge(destination, weight));
     }
 
     public void findPathsOfLength7(int start, int end) {
@@ -37,7 +48,8 @@ public class PathFinder {
         }
 
         // Try all neighbrs
-        for (int neighbor : graph.get(current)) {
+        for (Edge edge : graph.get(current)) {
+            int neighbor = edge.destination;
             if (!visited[neighbor]) {
                 // Add to path
                 visited[neighbor] = true;
@@ -74,11 +86,12 @@ public class PathFinder {
         System.out.print("Enter number of edges: ");
         int e = scanner.nextInt();
 
-        System.out.println("Enter edges (source destination):");
+        System.out.println("Enter edges (source destination weight):");
         for (int i = 0; i < e; i++) {
             int source = scanner.nextInt();
             int destination = scanner.nextInt();
-            finder.addEdge(source, destination);
+            int weight = scanner.nextInt();  // Added weight input
+            finder.addEdge(source, destination, weight);
         }
 
         System.out.print("Enter start vertex: ");
