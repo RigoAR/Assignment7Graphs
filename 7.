@@ -2,9 +2,9 @@ Algorithm Analysis for Problem 4:
 Time Complexity: O(n^2)
 We only check the upper triangle of the matrix (elements where j > i).
 This still requires comparing approximately n^2/2 elements.
-The asymptotic time complexity remains O(n^2).
+The time complexity remains O(n^2).
 
-Space Complexity: O(n²)
+Space Complexity: O(n^2)
 The only significant space usage is storing the n*n input matrix.
 Total space complexity is O(n^2).
 
@@ -21,4 +21,13 @@ The adjacency list: O(V + E)
 The visited array: O(V)
 The path list: O(1) since we store at most 8 vertices
 Recursion stack: O(1) since the depth is at most 7
-The dominant factor is O(V), making the overall space complexity O(V).
+The dominant one though is O(V), making the overall space complexity O(V).
+
+Algorithm Alalysis for Problem 6:
+The time complexity is quadratic (O(n^2)) because:
+For each vertex (n iterations), we need to check connections to all other vertices (another n iterations)
+Printing the matrix requires looking at all n^2 cells
+
+The space complexity is also quadratic (O(n^2)) because:
+The adjacency matrix stores connections between all pairs of vertices, requiring n^2 storage locations
+The other data structures (arrays and lists) use linear (O(n)) space, which is gets chopped off compared to n^2
