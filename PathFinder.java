@@ -2,7 +2,7 @@ import java.util.*;
 
 public class PathFinder {
     private int vertices;
-    private List<List<Edge>> graph;  // Changed to store Edge objects
+    private List<List<Edge>> graph;
 
     // Edge class to store destination and weight
     static class Edge {
